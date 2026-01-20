@@ -3,16 +3,14 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 20             # Specifies the Node.js runtime version
+  pre_build:
     commands:
-      - echo Installing dependencies
-      - npm install
-
+      - npm install --legacy-peer-deps  # Forces npm to install the packages
   build:
     commands:
-      - echo Build started
-      - npm run build
-
-  post_build:
-    commands:
-      - echo Build completed
+artifacts:
+  files: 
+    - '**/*'              # Includes all files and subdirectories from the root directory.
+    - 'appspec.yml'          # Includes the appspec.yml file
+    - 'scripts/**' 
