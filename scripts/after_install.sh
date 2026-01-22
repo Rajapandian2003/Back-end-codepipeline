@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/ubuntu/Ecommerce-backend-mern-main
+cd /var/www/backend
 echo "Installing dependencies"
 npm install --legacy-peer-deps
 pm2 start 'node app.js'
