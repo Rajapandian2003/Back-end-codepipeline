@@ -4,4 +4,5 @@ pm2 delete all
 
 echo "Deleting old node_modules"
 cd /var/www/backend/
-rm -rf node_modules/
+rm -rf *
+
