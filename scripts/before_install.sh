@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Stopping old app"
-pm2 delete all
+pm2 stop all
 
 echo "Deleting old node_modules"
 cd /var/www/backend/
