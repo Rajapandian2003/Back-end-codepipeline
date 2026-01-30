@@ -1,12 +1,12 @@
 version: 0.2
-
-phases:
-  install:
-    runtime-versions:
-      nodejs: 20             # Specifies the Node.js runtime version
+phases:             
   pre_build:
     commands:
-      - docker pull 977527528431.dkr.ecr.ap-south-1.amazonaws.com/backend:latest  # Forces npm to install the packages
+      - docker build -t nodeimage .
+      - docker run -d -p 8000:5000 --name nodecontainer --restart unless-stopped nodeimage
+      - docker tag nodeimage:latest 977527528431.dkr.ecr.ap-south-1.amazonaws.com/backend:latest
+      - docker images
+      - docker push docker push 977527528431.dkr.ecr.ap-south-1.amazonaws.com/backend:latest
   build:
     commands:
 artifacts:
