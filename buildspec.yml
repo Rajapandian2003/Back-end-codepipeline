@@ -5,7 +5,7 @@ phases:
       - docker build -t nodeimage .
       - docker tag nodeimage:latest 977527528431.dkr.ecr.ap-south-1.amazonaws.com/backend:latest
       - docker images
-      - docker push docker push 977527528431.dkr.ecr.ap-south-1.amazonaws.com/backend:latest
+      - docker push 977527528431.dkr.ecr.ap-south-1.amazonaws.com/backend:latest
   build:
     commands:
 artifacts:
