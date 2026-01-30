@@ -6,7 +6,7 @@ phases:
       nodejs: 20             # Specifies the Node.js runtime version
   pre_build:
     commands:
-      - npm install --legacy-peer-deps  # Forces npm to install the packages
+      - docker pull 977527528431.dkr.ecr.ap-south-1.amazonaws.com/backend:latest  # Forces npm to install the packages
   build:
     commands:
 artifacts:
