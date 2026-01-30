@@ -1,8 +1,4 @@
 #!/bin/bash
-echo "Stopping old app"
-pm2 stop all
-
-echo "Deleting old node_modules"
-cd /var/www/backend/
-rm -rf *
+echo "Stopping old container"
+docker rm -f nodecontainer
 
