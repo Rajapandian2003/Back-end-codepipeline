@@ -1,7 +1,15 @@
 version: 0.2
-phases:             
+phases:  
+  install:
+    commands:
+      - echo "Installing Gitleaks..."
+      - wget https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks-linux-amd64 -O gitleaks
+      - chmod +x gitleaks
+      - mv gitleaks /usr/local/bin/
+      
   pre_build:
     commands:
+      - gitleaks detect --source . || exit 1
       - docker build -t nodeimage .
       - docker tag nodeimage:latest 977527528431.dkr.ecr.ap-south-1.amazonaws.com/backend:latest
       - docker images
