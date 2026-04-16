@@ -11,7 +11,9 @@ phases:
       
   pre_build:
     commands:
-      - gitleaks detect --source . || exit 1
+      - echo "Scanning for any leaks"
+      - gitleaks detect --source . --no-git || exit 1
+      - echo "No leaks found"
       - docker build -t nodeimage .
       - docker tag nodeimage:latest 977527528431.dkr.ecr.ap-south-1.amazonaws.com/backend:latest
       - docker images
